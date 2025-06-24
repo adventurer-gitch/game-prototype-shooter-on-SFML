@@ -17,7 +17,7 @@ void MyNamespace::Game::initPlayer()
 
 	open_file0.close();
 
-	this->player.getImage().loadFromFile("Images/fake_player_0.png");
+	this->player.getImage().loadFromFile("Images/player.png");
 	this->player.getTexture().loadFromImage(this->player.getImage());
 	this->player.getSprite().setTexture(this->player.getTexture());
 	this->player.getSprite().setScale(this->window_size.width / this->grand_window_size_width, this->window_size.height / this->grand_windwo_size_height);

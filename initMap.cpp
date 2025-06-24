@@ -2,7 +2,7 @@
 
 void MyNamespace::Game::initMap()
 {
-	this->map.getImage().loadFromFile("Images/fale_map_0.png");
+	this->map.getImage().loadFromFile("Images/map.png");
 	this->map.getTexture().loadFromImage(this->map.getImage());
 	this->map.getSprite().setTexture(this->map.getTexture());
 	this->map.getSprite().setScale(this->window_size.width / this->grand_window_size_width, this->window_size.height / this->grand_windwo_size_height);

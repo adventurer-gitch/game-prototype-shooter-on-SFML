@@ -2,7 +2,7 @@
 
 void MyNamespace::Game::initEnemyBullet()
 {
-	this->new_enemy_bullet.getImage().loadFromFile("Images/fake_bullet_0.png");
+	this->new_enemy_bullet.getImage().loadFromFile("Images/bullet.png");
 	this->new_enemy_bullet.getImage().createMaskFromColor(sf::Color(255, 255, 255));
 	this->new_enemy_bullet.getTexture().loadFromImage(this->new_enemy_bullet.getImage());
 	this->new_enemy_bullet.getSprite().setTexture(this->new_enemy_bullet.getTexture());

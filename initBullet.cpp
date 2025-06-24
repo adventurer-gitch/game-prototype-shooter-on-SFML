@@ -2,7 +2,7 @@
 
 void MyNamespace::Game::initBullet()
 {
-	this->bullets.getImage().loadFromFile("Images/fake_bullet_0.png");
+	this->bullets.getImage().loadFromFile("Images/bullet.png");
 	this->bullets.getImage().createMaskFromColor(sf::Color(255, 255, 255));
 	this->bullets.getTexture().loadFromImage(this->bullets.getImage());
 	this->bullets.getSprite().setTexture(this->bullets.getTexture());
