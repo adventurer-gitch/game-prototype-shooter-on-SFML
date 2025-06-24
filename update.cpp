@@ -140,10 +140,10 @@ void MyNamespace::Game::update()
 
 		for (int j = 0; j < this->enemy.size(); ++j) 
 		{
-			bool hitX = this->bullet[i].getSprite().getPosition().x > this->enemy[j].getSprite().getPosition().x - this->enemy[j].getSprite().getGlobalBounds().width / 2 && this->bullet[i].getSprite().getPosition().x < this->enemy[j].getSprite().getPosition().x + this->enemy[j].getSprite().getGlobalBounds().width / 2;
-			bool hitY = this->bullet[i].getSprite().getPosition().y > this->enemy[j].getSprite().getPosition().y - this->enemy[j].getSprite().getGlobalBounds().height / 2 && this->bullet[i].getSprite().getPosition().y < this->enemy[j].getSprite().getPosition().y + this->enemy[j].getSprite().getGlobalBounds().height / 2;
+			//bool hitX = this->bullet[i].getSprite().getPosition().x > this->enemy[j].getSprite().getPosition().x - this->enemy[j].getSprite().getGlobalBounds().width / 2 && this->bullet[i].getSprite().getPosition().x < this->enemy[j].getSprite().getPosition().x + this->enemy[j].getSprite().getGlobalBounds().width / 2;
+			//bool hitY = this->bullet[i].getSprite().getPosition().y > this->enemy[j].getSprite().getPosition().y - this->enemy[j].getSprite().getGlobalBounds().height / 2 && this->bullet[i].getSprite().getPosition().y < this->enemy[j].getSprite().getPosition().y + this->enemy[j].getSprite().getGlobalBounds().height / 2;
 			
-			if (hitX && hitY) 
+			if (bullet[i].getSprite().getGlobalBounds().intersects(enemy[j].getSprite().getGlobalBounds()))
 			{
 				// Удаление врага и пули игрока 
 				 this->bullet.erase(this->bullet.begin() + i); 
@@ -197,64 +197,6 @@ void MyNamespace::Game::update()
 	}
 	
 	
-
-
-
-	//for (int i = 0; i < this->enemy_bullet.size(); ++i)
-	//{
-	//	bool a = this->enemy_bullet[i].getSprite().getPosition().x > this->player.getSprite().getPosition().x - this->player.getSprite().getGlobalBounds().width / 2;
-	//	bool b = this->enemy_bullet[i].getSprite().getPosition().x < this->player.getSprite().getPosition().x + this->player.getSprite().getGlobalBounds().width / 2;
-	//	bool c = this->enemy_bullet[i].getSprite().getPosition().y > this->player.getSprite().getPosition().y - this->player.getSprite().getGlobalBounds().height / 2;
-	//	bool d = this->enemy_bullet[i].getSprite().getPosition().y < this->player.getSprite().getPosition().y + this->player.getSprite().getGlobalBounds().height / 2;
-
-	//	if (a and b and c and d)
-	//	{
-	//		this->enemy_bullet.erase(this->enemy_bullet.begin() + i);
-	//	}
-	//}
-
-
-	/*for (size_t i = 0; i < this->enemy.size(); i++)
-	{
-		auto& enemy = this->enemy[i];
-		auto& fire_timer = this->enemy_fire_timer[i];
-
-		sf::Vector2f direction = this->player.getSprite().getPosition() - enemy.getSprite().getPosition();
-		float distance = std::sqrt(std::pow(direction.x, 2) + std::pow(direction.y, 2));
-
-		if (distance != 0)
-		{
-			direction /= distance;
-		}
-
-		if (distance < this->attack_range)
-		{
-			if (fire_timer.getElapsedTime().asSeconds() >= this->enemy_fire_rate)
-			{
-				Bullet enemyBullet;
-				enemyBullet.getImage().loadFromFile("Images/fake_bullet_0.png");
-				enemyBullet.getImage().createMaskFromColor(sf::Color(255, 255, 255));
-				enemyBullet.getTexture().loadFromImage(enemyBullet.getImage());
-				enemyBullet.getSprite().setTexture(enemyBullet.getTexture());
-				enemyBullet.getSprite().setPosition(enemy.getSprite().getPosition());
-
-				EnemyBullet newEnemyBullet = { enemyBullet, direction };
-				this->enemy_bullet.push_back(newEnemyBullet);
-				fire_timer.restart();
-			}
-		}
-		else
-		{
-			enemy.getSprite().move(direction.x* this->grand_speed* time0 / 20, direction.y* this->grand_speed* time0 / 20);
-		}
-	}
-
-	for (auto& enemyBullet : this->enemy_bullet)
-	{
-		Bullet& bullet = enemyBullet.bullet;
-		sf::Vector2f& bulletDirection = enemyBullet.direction;
-		bullet.getSprite().move(bulletDirection.x * this->grand_speed * time0 / 20, bulletDirection.y * this->grand_speed * time0 / 20);
-	}*/
 	
 	for (int i = 0; i < this->enemy.size(); ++i)
 	{
